@@ -1,29 +1,52 @@
 # CubeMart
 
-CubeMart is a cloud-native microservices e-commerce platform built to showcase modern backend engineering, DevOps delivery, GitOps deployment, Kubernetes orchestration, AWS infrastructure, and AI-assisted shopping workflows.
+CubeMart is a cloud-native e-commerce platform designed around distributed systems, platform engineering, and production-style delivery practices. The organization brings together customer-facing commerce services, operational tooling, Kubernetes deployment assets, and infrastructure-as-code to model how modern retail platforms are designed, delivered, and evolved.
 
-## Overview
+## Platform Overview
 
-CubeMart is organized as a full-stack platform rather than a single application. It combines:
+CubeMart is structured as a multi-repository microservices platform with clear separation between application services, deployment configuration, and cloud infrastructure. The architecture emphasizes:
 
-- user-facing storefront and API entrypoint
-- distributed backend microservices
-- CI/CD automation and GitOps delivery
-- infrastructure-as-code for AWS and Kubernetes
-- observability-friendly cloud-native service design
-- an AI-powered shopping assistant using retrieval-augmented workflows
+- service decomposition around business capabilities
+- API-driven communication across independently deployable components
+- CI/CD and GitOps-based release workflows
+- Kubernetes-native deployment on Amazon EKS
+- infrastructure provisioning with Terraform
+- observability-oriented service design
+- AI-assisted shopping and recommendation experiences
 
-## Platform Map
+## Architecture Domains
 
-- `frontend` handles the storefront and user-facing API flow
-- `checkoutservice`, `cartservice`, `paymentservice`, `shippingservice`, and `emailservice` support the core purchase journey
-- `productcatalogservice`, `recommendationservice`, `adservice`, and `currencyservice` support browsing and merchandising
-- `authservice` manages registration, login, and token validation
-- `shoppingassistantservice` powers AI-assisted product discovery
-- `gitops` stores deployment manifests and environment overlays
-- `infrastructure` provisions AWS networking, state management, and EKS
+### Experience Layer
 
-## Core Repositories
+- `frontend` serves as the user-facing storefront and primary entrypoint for web requests
+- `authservice` supports identity-related flows including registration, login, and token validation
+
+### Commerce and Transaction Layer
+
+- `cartservice` manages per-user shopping cart state
+- `checkoutservice` orchestrates order placement across downstream services
+- `paymentservice` processes transaction requests
+- `shippingservice` generates shipping quotes and fulfillment metadata
+- `emailservice` delivers order confirmation notifications
+
+### Catalog and Merchandising Layer
+
+- `productcatalogservice` exposes product inventory and detail data
+- `recommendationservice` generates product suggestions
+- `adservice` delivers contextual promotional content
+- `currencyservice` handles currency conversion for pricing workflows
+
+### Intelligence Layer
+
+- `shoppingassistantservice` provides AI-assisted product discovery using OpenAI, LangChain, and vector-based retrieval patterns
+
+### Platform and Operations Layer
+
+- `gitops` stores Kubernetes manifests, overlays, and ArgoCD application definitions
+- `infrastructure` provisions AWS networking, remote state backends, and Amazon EKS resources with Terraform
+- `loadgenerator` supports traffic simulation and performance-oriented testing scenarios
+
+## Repository Landscape
 
 - `frontend`
 - `authservice`
@@ -41,49 +64,46 @@ CubeMart is organized as a full-stack platform rather than a single application.
 - `gitops`
 - `infrastructure`
 
-## Delivery Workflow
+## Delivery Model
 
-CubeMart follows a staged collaboration model:
+CubeMart follows a staged branch promotion workflow aligned to collaborative delivery:
 
-1. Work starts in `feature/*` or `docs/*` branches
-2. Changes are merged into `dev`
+1. Work begins in `feature/*`, `bugfix/*`, `docs/*`, or `chore/*` branches
+2. Reviewed changes are integrated into `dev`
 3. Validated work is promoted to `test`
 4. Release-ready changes are promoted to `main`
 
-This keeps contribution flow simple and makes the project a strong collaboration and portfolio environment.
+This workflow supports incremental development, structured review, and predictable release progression across the platform.
 
-## Technology Highlights
+## Technology Stack
 
-- Go
-- Python
-- Node.js
-- Java
-- C#
-- Docker
-- Jenkins
-- Kubernetes
-- ArgoCD
-- Terraform
-- AWS
-- OpenTelemetry
-- OpenAI
+- Go, Python, Node.js, Java, and C#
+- Docker for container packaging
+- Jenkins for CI/CD orchestration
+- Kubernetes and ArgoCD for cluster deployment and GitOps delivery
+- Terraform for infrastructure provisioning
+- AWS for networking, state management, and EKS-based runtime environments
+- OpenTelemetry for distributed tracing across instrumented services
+- OpenAI and LangChain for AI-assisted shopping workflows
 
-## Why CubeMart
+## Engineering Focus
 
-- cloud-native application development
-- microservices architecture
-- DevOps and GitOps workflows
-- observability and tracing
-- AI-assisted product experiences
-- team-based contribution and review practices
+CubeMart is intended to demonstrate:
+
+- microservices architecture and service boundaries
+- platform engineering and environment promotion
+- infrastructure automation and cloud provisioning
+- GitOps operating models for Kubernetes
+- observability-aware distributed systems
+- applied AI in user-facing commerce experiences
 
 ## Getting Started
 
-If you're exploring CubeMart for the first time, start with:
+For an architecture-first walkthrough, start with:
 
-- `frontend` for the user-facing entry point
-- `authservice` for identity and login flow
-- `checkoutservice` for order orchestration
-- `shoppingassistantservice` for the AI recommendation workflow
-- `gitops` for Kubernetes deployment structure
-- `infrastructure` for Terraform-based AWS provisioning
+- `frontend` to understand the primary request entrypoint
+- `checkoutservice` to trace orchestration across the commerce workflow
+- `authservice` to review authentication responsibilities
+- `shoppingassistantservice` to explore the AI-assisted recommendation path
+- `gitops` to inspect deployment topology and overlays
+- `infrastructure` to review Terraform-managed AWS and EKS provisioning
