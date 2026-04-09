@@ -5,6 +5,38 @@ CubeMart is a cloud-native e-commerce platform designed around distributed syste
 ## Reference Architecture
 The CubeMart platform combines service development, container build pipelines, GitOps-driven deployment, and AWS-based Kubernetes runtime infrastructure into a unified operating model.
 
+## Architecture Gallery
+
+### CI/CD and GitOps Flow
+
+![CubeMart CI/CD Flow](./assets/cubemart-ci-cd-flow.jpeg)
+
+This view highlights the repository-driven build workflow, Jenkins-based automation, Terraform provisioning, and promotion into Kubernetes runtime environments.
+
+### Delivery Pipeline to Amazon EKS
+
+![CubeMart Pipeline to EKS](./assets/cubemart-pipeline-to-eks.jpeg)
+
+This diagram shows the application delivery path from source control and Docker image generation through GitOps synchronization and deployment on Amazon EKS.
+
+### Jenkins, Terraform, and Cluster Provisioning
+
+![CubeMart Jenkins Terraform EKS](./assets/cubemart-jenkins-terraform-eks.jpeg)
+
+This view focuses on infrastructure delivery, showing how Jenkins and Terraform interact with AWS-managed Kubernetes resources and worker nodes.
+
+### Auth, IRSA, and Kubernetes Service Accounts
+
+![CubeMart Auth IRSA EKS](./assets/cubemart-auth-irsa-eks.jpeg)
+
+This diagram captures the authentication service integration pattern, including AWS Secrets Manager access, IAM roles for service accounts, and pod-level identity on EKS.
+
+### Service Topology and Request Flow
+
+![CubeMart Service Topology](./assets/cubemart-service-topology.jpeg)
+
+This view outlines frontend-led request routing across the core commerce services, including catalog, cart, checkout, payment, recommendation, and assistant-oriented service flows.
+
 ## Platform Overview
 
 CubeMart is structured as a multi-repository microservices platform with clear separation between application services, deployment configuration, and cloud infrastructure. The architecture emphasizes:
