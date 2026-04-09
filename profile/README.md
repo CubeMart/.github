@@ -3,9 +3,6 @@
 CubeMart is a cloud-native e-commerce platform designed around distributed systems, platform engineering, and production-style delivery practices. The organization brings together customer-facing commerce services, operational tooling, Kubernetes deployment assets, and infrastructure-as-code to model how modern retail platforms are designed, delivered, and evolved.
 
 ## Reference Architecture
-
-![CubeMart Architecture](./assets/cubemart-architecture.png)
-
 The CubeMart platform combines service development, container build pipelines, GitOps-driven deployment, and AWS-based Kubernetes runtime infrastructure into a unified operating model.
 
 ## Platform Overview
