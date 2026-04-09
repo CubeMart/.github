@@ -7,10 +7,6 @@ The CubeMart platform combines service development, container build pipelines, G
 
 ## Architecture Gallery
 
-### CI/CD and GitOps Flow
-
-![CubeMart CI/CD Flow](./assets/cubemart-ci-cd-flow.jpeg)
-
 This view highlights the repository-driven build workflow, Jenkins-based automation, Terraform provisioning, and promotion into Kubernetes runtime environments.
 
 ### Delivery Pipeline to Amazon EKS
